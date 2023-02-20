@@ -7,6 +7,9 @@ env:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -15,4 +18,5 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1 # More information on this action can be found below in the 'AWS Credentials' section
         with:
           role-to-assume: arn:aws:iam::875151758766:role/github-actions-role
-          aws-region: us-east-2
+          role-session-name: samplerolesession
+          aws-region: ap-northeast-1
